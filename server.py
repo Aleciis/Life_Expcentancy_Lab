@@ -59,7 +59,7 @@ def year():
     f= open("data/life_expectancy.json", "r")
     data=json.load(f)
     f.close()
-    return render_template('year.html',years = sorted(data["Canada"].keys()) )
-
+    return render_template('year.html',years = sorted(data["Canada"].keys()))
+# look at demo code request.get to pull a variable out of a url
 
 app.run(debug=True)
