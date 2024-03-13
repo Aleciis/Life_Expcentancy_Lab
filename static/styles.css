@@ -12,12 +12,13 @@ svg{
 }
 
 .US{
-  fill: #ff6b6b;
+  fill: #EE4B2B;
+  filter: saturate(.5);
   
 }
 .Canada{
-  fill: #4ecdc4;
+  fill: #EE4B2B;
 }
 .Mexico{
-  fill: #ffe66d;
+  fill: #EE4B2B;
 }

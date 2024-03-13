@@ -310,3 +310,5 @@
 
 
 <!-- group each country into different colors -->
+<!-- saturation level based on life expectancy -->
+<!-- use life expectancy range (~55-80) and convert the number to a % -->

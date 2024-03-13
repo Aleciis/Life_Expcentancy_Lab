@@ -48,10 +48,12 @@ def index():
         all_nums.append(US_data[b])
         all_nums.append(mexico_data[c])
     
+    
     all_sorted = sorted(all_nums)
     lowest = all_sorted[0]
     highest = all_sorted[-1]
     print(lowest,highest)
+    #print(all_sorted)
     
     all_weighted =[]
     for nums in all_nums:
@@ -118,8 +120,8 @@ def index():
         Avg_coords.append([start_x, stop_x])
    
     data_percentages = ["50","60","70","80","90"]
-
-    print(avg_weighted_points)
+    print(Avg_coords)
+    #print(avg_weighted_points)
       
     
     return render_template('index.html',years = sorted(data["Canada"].keys()), canada_data= canada_weighted_points, US_data = US_weighted_points, mexico_data= mexico_weighted_points, avg_data=avg_weighted_points, percentages=data_percentages)
