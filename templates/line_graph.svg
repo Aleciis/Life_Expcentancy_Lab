@@ -5,26 +5,31 @@
      <line class="axis" x1="50" y1="450" x2="500" y2="450" style="stroke:black;stroke-width:5"/>
      <text class="Year" x="250" y="495" text-anchor="middle">Year</text>
      {% for point in canada_data %}
-    <line class="line" x1="{{60+loop.index0*7}}" y1="{{300-point[0]}}" x2="{{60+(loop.index0+1)*7}}" y2="{{300-point[1]}}" stroke-linecap="round" stroke="black" stroke-width="3"/>
+    <line class="line" x1="{{55+loop.index0*7}}" y1="{{200-point[0]}}" x2="{{55+(loop.index0+1)*7}}" y2="{{200-point[1]}}" stroke-linecap="round" stroke="black" stroke-width="3"/>
      {% endfor %}
 
      {% for point in US_data %}
-    <line class="line" x1="{{60+loop.index0*7}}" y1="{{300-point[0]}}" x2="{{60+(loop.index0+1)*7}}" y2="{{300-point[1]}}" stroke-linecap="round" stroke="red" stroke-width="3"/>
+    <line class="line" x1="{{55+loop.index0*7}}" y1="{{450-point[0]}}" x2="{{55+(loop.index0+1)*7}}" y2="{{450-point[1]}}" stroke-linecap="round" stroke="red" stroke-width="3"/>
      {% endfor %}
 
      {% for point in mexico_data %}
-    <line class="line" x1="{{60+loop.index0*7}}" y1="{{300-point[0]}}" x2="{{60+(loop.index0+1)*7}}" y2="{{300-point[1]}}" stroke-linecap="round" stroke="blue" stroke-width="3"/>
+    <line class="line" x1="{{55+loop.index0*7}}" y1="{{445-point[0]}}" x2="{{55+(loop.index0+1)*7}}" y2="{{445-point[1]}}" stroke-linecap="round" stroke="blue" stroke-width="3"/>
      {% endfor %}
      <!-- scale / change y values to fit graph cleanly -->
      {% for point in avg_data %}
-    <line class="line" x1="{{60+loop.index0*7}}" y1="{{300-point[0]}}" x2="{{60+(loop.index0+1)*7}}" y2="{{300-point[1]}}" stroke-linecap="round" stroke="yellow" stroke-width="3"/>
+    <line class="line" x1="{{55+loop.index0*7}}" y1="{{(330-point[0])}}" x2="{{55+(loop.index0+1)*7}}" y2="{{(330-point[1])}}" stroke-linecap="round" stroke="yellow" stroke-width="3"/>
      {% endfor %}
 
      {% for year in years %}
+         {%set intyear = year|int %}
           <!-- convert int to string jinja -->
-         
-     <text class="Year" x="{{75+10*loop.index0}}" y="495" text-anchor="middle">{{year}}</text>
-         
+         {%if intyear % 10 ==0%}
+     <text class="Year" x="{{75+6.625*loop.index0}}" y="475" text-anchor="middle">{{year}}</text>
+         {%endif%}
+     {%endfor%}
+
+     {%for point in percentages %} 
+          <text class="percents" x="30" y="{{450-100*loop.index0}}" text-anchor="middle">{{point}}%</text>
      {%endfor%}
 
 </svg>

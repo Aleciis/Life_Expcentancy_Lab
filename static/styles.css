@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Madimi+One&display=swap'); 
 body{
-  background-color: #70ff88;
+  background-color: #90be6d;
   font-family: "Inter", sans-serif;
   
 
@@ -9,4 +9,15 @@ body{
 svg{
   border-style: solid;
   border-width: 1px;
+}
+
+.US{
+  fill: #ff6b6b;
+  
+}
+.Canada{
+  fill: #4ecdc4;
+}
+.Mexico{
+  fill: #ffe66d;
 }
