@@ -43,10 +43,14 @@ def index():
     for (a,b,c) in zip(canada_data, US_data, mexico_data):
         avg_sum=0
         avg_sum= (canada_data[a]+US_data[b]+mexico_data[c])/3
+        
         Avg_list.append(avg_sum)
         all_nums.append(canada_data[a])
         all_nums.append(US_data[b])
         all_nums.append(mexico_data[c])
+
+    
+
     
     
     all_sorted = sorted(all_nums)
@@ -54,6 +58,14 @@ def index():
     highest = all_sorted[-1]
     print(lowest,highest)
     #print(all_sorted)
+    avg=0
+    universal_avg=[]
+    for n in all_sorted:
+        avg=avg+n
+        total=avg/len(all_sorted)
+    universal_avg.append(total)
+    universal_avg.append(total)
+    print(universal_avg)
     
     all_weighted =[]
     for nums in all_nums:
@@ -119,10 +131,10 @@ def index():
         stop_x = Avg_list[n+1]
         Avg_coords.append([start_x, stop_x])
    
-    data_percentages = ["50","60","70","80","90"]
-    print(Avg_coords)
+    data_percentages = ["40","50","60","70","80","90"]
+    #print(Avg_coords)
     #print(avg_weighted_points)
-      
+    #print(Avg_list)
     
     return render_template('index.html',years = sorted(data["Canada"].keys()), canada_data= canada_weighted_points, US_data = US_weighted_points, mexico_data= mexico_weighted_points, avg_data=avg_weighted_points, percentages=data_percentages)
 

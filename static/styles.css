@@ -22,3 +22,34 @@ svg{
 .Mexico{
   fill: #EE4B2B;
 }
+
+
+.marking{
+  stroke:black;
+  stroke-width:1.5;
+  
+}
+
+.sub-marking{
+  stroke:black;
+  stroke-width:0.5;
+  
+}
+
+.Canada_points:hover{
+  stroke: aqua;
+}
+
+.US_points:hover{
+  stroke: aqua;
+}
+
+.Mexico_points:hover{
+  stroke: aqua;
+}
+
+.Avg_points:hover{
+  stroke: aqua;
+}
+
+
