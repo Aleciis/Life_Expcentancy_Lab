@@ -147,7 +147,7 @@ def year():
     print(f"request.url={request.query_string}")
     title_year = request.args.get('year')
 
-    return render_template('year.html',years = sorted(data["Canada"].keys()), title_year = title_year )
+    return render_template('year.html',years = sorted(data["Canada"].keys()), title_year = title_year, saturation=.7 )
 # look at demo code request.get to pull a variable out of a url
 
 app.run(debug=True)
