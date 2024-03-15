@@ -14,6 +14,26 @@
   <div id="north_america">
     {% include 'north_america.svg' %}
   </div>
+  {%if Canada_percent > universal_avg%}
+    {%set Cphrase = "higher"%}
+  {% elif Canada_percent < universal_avg%}
+    {%set Cphrase = "lower"%}
+    {%endif%}
+
+    {%if US_percent > universal_avg%}
+    {%set USphrase = "higher"%}
+  {% elif US_percent < universal_avg%}
+    {%set USphrase = "lower"%}
+    {%endif%}
+
+    {%if Mexico_percent > universal_avg%}
+    {%set Mphrase = "higher"%}
+  {% elif Mexico_percent < universal_avg%}
+    {%set Mphrase = "lower"%}
+    {%endif%}
+
+
+  <p>In {{title_year}}, Canada had a life expectancy rate of around {{Canada_percent}} years, which is {{Cphrase}} than the universal average of {{universal_avg}} years. <br>The US had a life expectancy rate of around {{US_percent}} years, which is {{USphrase}} than the universal average. <br>Mexico had a life expectancy rate of around {{Mexico_percent}} years, which is {{Mphrase}} than the universal average. </p>
 
   <footer>
     All data from <a href="https://data.worldbank.org/indicator/SP.DYN.LE00.IN?locations=MX-US-CA"> The World Bank</a>.

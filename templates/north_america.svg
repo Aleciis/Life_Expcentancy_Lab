@@ -71,17 +71,39 @@
     YT: "Yukon"}
   -->
 
-<style>
+
+  {%for nums in color_list%}
+  <filter id="{{nums}}" filterUnits="objectBoundingBox">
+     <feColorMatrix type="saturate" in="SourceGraphic" values="{{nums/100}}"/>
+  </filter>
+  <rect class="colors" width="10" height="1.6" x="0" y="{{700+1.6*loop.index0}}" fill="#e70e02" filter="url(#{{nums}})"/>
+  {%endfor%}
+  <text x="10" y="685" fill="black" text-anchor="middle">Life Expectancy Legend (Years):</text>
+
+  <text x="12" y="705" fill="black">0</text>
+  <text x="12" y="745" fill="black">25</text>
+  <text x="12" y="785" fill="black">50</text>
+  <text x="12" y="825" fill="black">75</text>
+  <text x="12" y="865" fill="black">100</text>
+
+  
+  
+ 
+  <style>
   .Mexico_country{
-    fill: #EE4B2B;
-    filter: saturate({{saturation}})
+    fill: #e70e02;
+    filter: saturate({{Mexico_saturation /100}});
   }
   .Canada_provinces{
-    fill: #EE4B2B;
-    filter: saturate({{saturation}})
+    fill: #e70e02;
+    filter: saturate({{Canada_saturation /100}});
   }
+  .US_states{
+    fill: #e70e02;
+    filter: saturate({{US_saturation /100}});
+  }
+  
   </style>
-
   
   <g class="Canada_provinces">
   <path

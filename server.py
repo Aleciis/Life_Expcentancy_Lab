@@ -3,6 +3,7 @@ from flask import Flask
 from flask import render_template
 import json
 from flask import request
+import math
 
 
 app = Flask(__name__, static_url_path='', static_folder='static')
@@ -146,8 +147,45 @@ def year():
     print(f"request.url={request.url}")
     print(f"request.url={request.query_string}")
     title_year = request.args.get('year')
+    number_year = int(title_year)
+    canada_data = data["Canada"]
+    US_data= data["United States"]
+    mexico_data=data["Mexico"]
+    all_nums=[]
+    print(canada_data["2019"])
 
-    return render_template('year.html',years = sorted(data["Canada"].keys()), title_year = title_year, saturation=.7 )
+    
+
+    for (a,b,c) in zip(canada_data, US_data, mexico_data):
+
+        all_nums.append(canada_data[a])
+        all_nums.append(US_data[b])
+        all_nums.append(mexico_data[c])
+    
+    all_sorted = sorted(all_nums)
+    lowest = all_sorted[0]-20
+    highest = all_sorted[-1]
+    #print(lowest)
+    
+    all_weighted =[]
+    for nums in all_nums:
+        all_weighted.append( (nums- lowest) / (highest - lowest) * (100 - 0) - 0)
+    
+    #print(all_weighted)
+    country_year_data=[]
+
+    for i in range(0,len(all_weighted),3):
+        country_year_data.append(all_weighted[i:i+3])
+    #print(country_year_data)
+    #print(country_year_data[0][0])
+    #print(number_year)
+    print(country_year_data[(number_year-1960)][0]/100)
+
+  
+
+    color_list=list(range(0,101))
+
+    return render_template('year.html',years = sorted(data["Canada"].keys()), title_year = title_year, Canada_saturation=country_year_data[(number_year-1960)][0], US_saturation=country_year_data[(number_year-1960)][1], Mexico_saturation=country_year_data[(number_year-1960)][2], color_list=color_list, Canada_percent=math.floor(canada_data[title_year]),US_percent=math.floor(US_data[title_year]),Mexico_percent=math.floor(mexico_data[title_year]), universal_avg=72.3 )
 # look at demo code request.get to pull a variable out of a url
 
 app.run(debug=True)
